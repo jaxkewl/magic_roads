@@ -37,7 +37,7 @@ public class SimManager : MonoBehaviour
             var dice = rnd.Next(1, 4);
             GameObject newGO = new GameObject();
             //Vector3 rotation = new Vector3(0, 90, 0);
-            Debug.Log("Selected " + dice + lastWasSlantLeft + lastWasSlantRight);
+            //Debug.Log("Selected " + dice + lastWasSlantLeft + lastWasSlantRight);
             if (lastWasSlantLeft || lastWasSlantRight) dice = 1;
             
             switch (dice)
@@ -61,7 +61,7 @@ public class SimManager : MonoBehaviour
                     }
                     //newGO.transform.Rotate(0, 0, 0);
                     newGO.transform.position = currentPos;
-                    Debug.Log($"Adding a straight road at pos:{newGO.transform.position}");
+                    //Debug.Log($"Adding a straight road at pos:{newGO.transform.position}");
                     roads.Enqueue(newGO);
                     break;
                 case 2:
@@ -70,7 +70,7 @@ public class SimManager : MonoBehaviour
                     currentPos = new Vector3(currentPos.x + 4, 0, currentPos.z + 10);
                     //newGO.transform.Rotate(0, 0, 0);
                     newGO.transform.position = currentPos;
-                    Debug.Log($"Adding a right road at pos:{newGO.transform.position}");
+                    //Debug.Log($"Adding a right road at pos:{newGO.transform.position}");
                     roads.Enqueue(newGO);
                     lastWasSlantRight = true;
                     break;
@@ -79,7 +79,7 @@ public class SimManager : MonoBehaviour
                     currentPos = new Vector3(currentPos.x - 4, 0, currentPos.z + 10);
                     //newGO.transform.Rotate(0, 0, 0);
                     newGO.transform.position = currentPos;
-                    Debug.Log($"Adding a left road at pos:{newGO.transform.position}");
+                    //Debug.Log($"Adding a left road at pos:{newGO.transform.position}");
                     roads.Enqueue(newGO);
 
                     lastWasSlantLeft = true;
@@ -90,7 +90,7 @@ public class SimManager : MonoBehaviour
             
 
             #region remove roads
-            Debug.Log($"roads:{roads.Count}/maxRoads:{maxRoadSegments}");
+            //Debug.Log($"roads:{roads.Count}/maxRoads:{maxRoadSegments}");
             if (roads.Count > maxRoadSegments)
             {
                 GameObject killed = roads.Dequeue();
